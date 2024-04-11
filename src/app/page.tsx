@@ -7,7 +7,7 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen p-6 md:p-24">
-      <header>
+      <header className="mb-6 ms-4 flex justify-center md:justify-start">
         <h1 className="text-7xl font-bold">Pokemon</h1>
       </header>
       <section className="w-full flex flex-row flex-wrap justify-evenly">
