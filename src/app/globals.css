@@ -9,8 +9,9 @@
   --color-background: rgba(255, 255, 255, 0.4);
 }
 
-.button__grey {
-  @apply inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2;
+.pokemon-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 /* @media (prefers-color-scheme: dark) {

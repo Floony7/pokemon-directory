@@ -1,7 +1,7 @@
 import { PokemonCard } from "@/components/pokemon-card";
 import { SearchForm } from "@/components/search-control";
 import { fetchPokemonList } from "@/lib/api";
-import { Container, Flex } from "@radix-ui/themes";
+import { Container, Flex, Grid } from "@radix-ui/themes";
 
 export default async function Home() {
   const pokemonList = await fetchPokemonList();
@@ -18,7 +18,7 @@ export default async function Home() {
             <SearchForm />
           </div>
         </header>
-        <section className="w-full flex flex-row flex-wrap justify-evenly">
+        <section className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-4">
           {pokemonList !== undefined
             ? pokemonList?.map((p) => <PokemonCard key={p.name} pokemon={p} />)
             : null}

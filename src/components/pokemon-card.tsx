@@ -5,7 +5,7 @@ import { Card, Heading, Text } from "@radix-ui/themes";
 
 export const PokemonCard = ({ pokemon }: { pokemon: PokemonResultType }) => {
   return (
-    <Card className="rounded w-full md:w-80 shadow-lg bg-amber-700/50 mb-2 ms-1 ">
+    <Card className="rounded w-full shadow-lg bg-amber-700/50 mb-2 ms-1">
       <div className="px-6 py-4">
         <Heading>{capitalise(pokemon.name)}</Heading>
         <Text>{pokemon.url}</Text>
