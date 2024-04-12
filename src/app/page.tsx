@@ -10,9 +10,9 @@ export default async function Home() {
   return (
     <main className="min-h-screen p-6 md:p-24">
       <div>
-        <header className="mb-6 flex ms-5 justify-center xl:justify-start">
-          <div className="w-full flex md:w-7/12 flex-col justify-center 2xl:flex-row 2xl:justify-between items-center">
-            <h1 className="text-4xl xl:text-7xl font-bold text-white">
+        <header className="mb-6 flex ms-5 justify-center 2xl:justify-start">
+          <div className="w-full flex md:w-8/12 2xl:w-7/12 flex-col justify-center 2xl:flex-row 2xl:justify-between items-center">
+            <h1 className="text-4xl xl:text-7xl font-bold text-white m-0 p-0">
               Pokemon
             </h1>
             <SearchForm />
