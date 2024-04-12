@@ -4,7 +4,7 @@ import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 export const SearchForm = () => {
   return (
     <TextField.Root
-      style={{ marginTop: "0.5rem" }}
+      style={{ marginTop: "2rem" }}
       placeholder="Find a Pokemon..."
       size="3"
     >
