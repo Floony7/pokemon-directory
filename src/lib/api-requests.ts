@@ -22,4 +22,10 @@ export async function fetchPokemonList() {
         console.log(err);
     }
 }
+
 // get individual Pokemon
+export async function fetchPokemonByName(name: string) {
+    const res =  await fetch(`${BASE_PATH}/pokemon/${name}`);
+    const data = await res.json();
+    return data;
+}

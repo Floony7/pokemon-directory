@@ -1,4 +1,4 @@
-import { PokemonResultType } from "@/lib/api";
+import { PokemonResultType } from "@/lib/api-requests";
 import { capitalise } from "@/lib/utils";
 import { Card, Heading, Text } from "@radix-ui/themes";
 // import Image from "next/image";

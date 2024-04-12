@@ -1,6 +1,6 @@
 import { PokemonCard } from "@/components/pokemon-card";
 import { SearchForm } from "@/components/search-control";
-import { fetchPokemonList } from "@/lib/api";
+import { fetchPokemonList } from "@/lib/api-requests";
 import { Container, Flex, Grid } from "@radix-ui/themes";
 
 export default async function Home() {
