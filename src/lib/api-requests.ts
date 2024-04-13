@@ -15,11 +15,19 @@ export interface PokemonList {
 // Fetch first 151
 export async function fetchPokemonList() {
     try {
-        const res = await fetch(`${BASE_PATH}/pokemon?limit=151&offfset=0`);
+        let allPokemonData = [];
+        const res = await fetch(`${BASE_PATH}/pokemon?limit=151&offset=0`);
         const data: PokemonList = await res.json();
-        return data.results;
+        const results = data.results;
+        for await (let result of results) {
+            const pokemonRes = await fetch(result.url);
+            const pokemonData = await pokemonRes.json();
+            allPokemonData.push(pokemonData);
+        }
+        console.log(allPokemonData);
+        return allPokemonData;
     } catch (err) {
-        console.log(err);
+        console.log(err); // Todo: Throw error and create error.tsx file
     }
 }
 
@@ -29,3 +37,4 @@ export async function fetchPokemonByName(name: string) {
     const data = await res.json();
     return data;
 }
+
