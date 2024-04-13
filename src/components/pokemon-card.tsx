@@ -1,6 +1,7 @@
 import { PokemonResultType } from "@/lib/api-requests";
 import { capitalise } from "@/lib/utils";
 import { Card, Heading, Text } from "@radix-ui/themes";
+import Image from "next/image";
 // import Image from "next/image";
 
 export const PokemonCard = ({ pokemon }: { pokemon: any }) => {
@@ -9,6 +10,12 @@ export const PokemonCard = ({ pokemon }: { pokemon: any }) => {
       <div className="px-6 py-4">
         <Heading>{capitalise(pokemon.name)}</Heading>
         <Text>{pokemon.height}</Text>
+        <Image
+          src={pokemon.sprites.other["official-artwork"].front_default}
+          alt={pokemon.name}
+          width="300"
+          height="300"
+        />
       </div>
     </Card>
   );
