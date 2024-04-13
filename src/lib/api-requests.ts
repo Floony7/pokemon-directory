@@ -24,7 +24,6 @@ export async function fetchPokemonList() {
             const pokemonData = await pokemonRes.json();
             allPokemonData.push(pokemonData);
         }
-        // console.log(allPokemonData);
         return allPokemonData;
     } catch (err) {
         console.log(err); // Todo: Throw error and create error.tsx file
