@@ -1,16 +1,20 @@
+import GridList2 from "@/components/grid-list2";
 import Header from "@/components/header";
 import { PokemonGridList } from "@/components/pokemon-grid-list";
 import { fetchPokemonList } from "@/lib/api-requests";
 
-export default async function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams?: { q?: string };
+}) {
   const pokemonList = await fetchPokemonList();
-  console.log(pokemonList);
 
   return (
     <main className="min-h-screen p-6 md:p-24">
       <div>
         <Header />
-        <PokemonGridList fetchData={pokemonList} />
+        <GridList2 query={searchParams?.q} />
       </div>
     </main>
   );

@@ -3,7 +3,6 @@
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { PokemonCard } from "./pokemon-card";
-import { SearchInput } from "./search-input";
 
 type FetchData = any;
 export const PokemonGridList = ({ fetchData }: FetchData) => {
@@ -26,8 +25,6 @@ export const PokemonGridList = ({ fetchData }: FetchData) => {
     };
     handleSearch();
   }, [searchQuery, fetchData]);
-
-  console.log(searchQuery, JSON.stringify(searchParams));
 
   return (
     <section className="grid grid-cols-1 lg:grid-cols-3 xl:grid-cols-4 gap-4">

@@ -2,7 +2,6 @@
 
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
-// import { useState, ChangeEvent, useEffect } from "react";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
 export const SearchInput = () => {
@@ -11,7 +10,6 @@ export const SearchInput = () => {
   const { replace } = useRouter();
 
   const handleSearch = useDebouncedCallback((term: string) => {
-    console.log(term);
     const params = new URLSearchParams(searchParams);
     if (term) {
       params.set("q", term);
@@ -37,15 +35,6 @@ export const SearchInput = () => {
           className="bg-white outline-none border-none w-full py-2 pl-2 pr-3"
         />
       </div>
-      {/* <Button
-        style={{
-          backgroundColor: "#d97706",
-          height: "auto",
-          cursor: "pointer",
-        }}
-      >
-        Search
-      </Button> */}
     </section>
   );
 };
