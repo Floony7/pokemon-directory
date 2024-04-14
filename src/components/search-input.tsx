@@ -1,37 +1,25 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { useState, ChangeEvent, useEffect } from "react";
-import { TextField, Button } from "@radix-ui/themes";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
+import { useDebouncedCallback } from "use-debounce";
+// import { useState, ChangeEvent, useEffect } from "react";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import Link from "next/link";
 
-interface iDefault {
-  defaultValue: string | null;
-}
+export const SearchInput = () => {
+  const searchParams = useSearchParams();
+  const pathname = usePathname();
+  const { replace } = useRouter();
 
-export const SearchInput = ({ defaultValue }: iDefault) => {
-  // initiate the router from next/navigation
-
-  const router = useRouter();
-
-  // We need to grab the current search parameters and use it as default value for the search input
-
-  const [inputValue, setValue] = useState(defaultValue);
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const inputValue = event.target.value;
-
-    setValue(inputValue);
-  };
-
-  useEffect(() => {
-    if (inputValue) {
-      return router.push(`/?q=${inputValue}`);
+  const handleSearch = useDebouncedCallback((term: string) => {
+    console.log(term);
+    const params = new URLSearchParams(searchParams);
+    if (term) {
+      params.set("q", term);
     } else {
-      return router.push("/");
+      params.delete("q");
     }
-  }, [inputValue, router]);
+    replace(`${pathname}?${params.toString()}`);
+  }, 300);
 
   return (
     <section className="flex w-3/12 gap-1">
@@ -43,8 +31,9 @@ export const SearchInput = ({ defaultValue }: iDefault) => {
           type="text"
           id="inputId"
           placeholder="Find a Pokemon..."
-          value={inputValue ?? ""}
-          onChange={(e) => handleChange(e)}
+          defaultValue={searchParams.get("q")?.toString()}
+          // value={inputValue ?? ""}
+          onChange={(e) => handleSearch(e.target.value)}
           className="bg-white outline-none border-none w-full py-2 pl-2 pr-3"
         />
       </div>

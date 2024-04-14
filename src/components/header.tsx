@@ -4,8 +4,6 @@ import { useSearchParams } from "next/navigation";
 import { SearchInput } from "./search-input";
 
 export default function Header() {
-  const searchParams = useSearchParams();
-  const searchQuery = searchParams.get("q");
   return (
     <header className="mb-6 flex ms-5 justify-center 2xl:justify-start items-end">
       <div className="w-full flex flex-col justify-center 2xl:flex-row 2xl:justify-between items-center">
@@ -20,7 +18,7 @@ export default function Header() {
             Pokemon White Pages
           </h1>
         </div>
-        <SearchInput defaultValue={searchQuery} />
+        <SearchInput />
       </div>
     </header>
   );

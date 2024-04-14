@@ -37,3 +37,8 @@ export async function fetchPokemonByName(name: string) {
     return data;
 }
 
+export async function fetchBySearchTerm(term: string) {
+    const res = await fetch(`${BASE_PATH}/pokemon`);
+    const data = await res.json();
+    return data.filter(d => d.name.includes(term.toLowerCase()));
+}
