@@ -30,7 +30,7 @@ export async function fetchPokemonList() {
     }
 }
 
-// get individual Pokemon
+// Fetch individual Pokemon
 export async function fetchPokemonByName(name: string) {
     const res =  await fetch(`${BASE_PATH}/pokemon/${name}`);
     const data = await res.json();

@@ -1,8 +1,13 @@
-import { SearchForm } from "./search-form";
+"use client";
+
+import { useSearchParams } from "next/navigation";
+import { SearchInput } from "./search-input";
 
 export default function Header() {
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.get("q");
   return (
-    <header className="mb-6 flex ms-5 justify-center 2xl:justify-start">
+    <header className="mb-6 flex ms-5 justify-center 2xl:justify-start items-end">
       <div className="w-full flex flex-col justify-center 2xl:flex-row 2xl:justify-between items-center">
         <div>
           <div
@@ -15,7 +20,7 @@ export default function Header() {
             Pokemon White Pages
           </h1>
         </div>
-        <SearchForm />
+        <SearchInput defaultValue={searchQuery} />
       </div>
     </header>
   );

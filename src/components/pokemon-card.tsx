@@ -7,7 +7,7 @@ import Link from "next/link";
 export const PokemonCard = ({ pokemon }: { pokemon: any }) => {
   return (
     <Card className="rounded w-full shadow-lg bg-amber-700 mb-2 ms-1 duration-150 hover:bg-purple-700">
-      <Link href={`/${pokemon.name}`}>
+      <Link href={`/pokemon/${pokemon.name}`}>
         <header className="flex justify-between">
           <Heading>{capitalise(pokemon.name)}</Heading>
           <Text className="text-2xl font-bold">{pokemon.order}</Text>
