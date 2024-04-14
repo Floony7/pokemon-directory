@@ -1,3 +1,5 @@
+import { Pokemon } from 'pokeapi-types';
+
 const BASE_PATH = 'https://pokeapi.co/api/v2'
 
 export type PokemonResultType = {
@@ -12,7 +14,7 @@ export interface PokemonList {
 }
 export async function fetchPokemonList() {
     try {
-        let allPokemonData = [];
+        let allPokemonData: Pokemon[] = [];
         const res = await fetch(`${BASE_PATH}/pokemon?limit=151&offset=0`);
         const data: PokemonList = await res.json();
         const results = data.results;
@@ -28,18 +30,18 @@ export async function fetchPokemonList() {
 }
 export async function fetchPokemonByName(name: string) {
     const res =  await fetch(`${BASE_PATH}/pokemon/${name}`);
-    const data = await res.json();
+    const data: Pokemon = await res.json();
     return data;
 }
 
 export async function fetchBySearchTerm(term: string) {
     const res = await fetch(`${BASE_PATH}/pokemon?limit=151&offset=0`);
     const data: PokemonList = await res.json();
-    let allPokemonData = [];
+    let allPokemonData: Pokemon[] = [];
     const results = data.results;
     for await (let result of results) {
         const pokemonRes = await fetch(result.url);
-        const pokemonData = await pokemonRes.json();
+        const pokemonData: Pokemon = await pokemonRes.json();
         allPokemonData.push(pokemonData);
     }
     if (!term) {

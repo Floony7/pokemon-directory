@@ -9,9 +9,9 @@ export default function Header() {
         <div>
           <div
             // style={{ transform: "rotate(15deg)" }}
-            className="text-xl text-yellow-400 font-bold bg-amber-950 w-fit h-fit p-2 rounded-full uppercase"
+            className="text-sm text-yellow-400 font-bold bg-amber-950 w-fit h-fit p-1 mb-2 rounded uppercase"
           >
-            The official
+            The somewhat unofficial
           </div>
           <h1 className="text-4xl font-bold xl:text-6xl text-white m-0 p-0">
             Pok&eacute;dex
