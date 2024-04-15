@@ -30,7 +30,7 @@ export const SearchInput = () => {
           <input
             type="text"
             id="inputId"
-            placeholder="Find a Pokemon..."
+            placeholder="Find Pokemon by name"
             defaultValue={searchParams.get("q")?.toString()}
             // value={inputValue ?? ""}
             onChange={(e) => handleSearch(e.target.value)}
