@@ -8,8 +8,6 @@ export default async function Home({
 }: {
   searchParams?: { q?: string };
 }) {
-  const pokemonList = await fetchPokemonList();
-
   return (
     <main className="min-h-screen">
       <Suspense fallback={<GridListSkeleton />}>
