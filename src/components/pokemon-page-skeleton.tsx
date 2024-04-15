@@ -21,21 +21,25 @@ export function PokemonPageSkeleton() {
           <Box as="div" display="block">
             <Skeleton width="200px" height="24px"></Skeleton>
             <div className="flex flex-col">
-              {Array(6).map((_, i) => (
-                <div key={i} className="flex items-center">
-                  <Skeleton width="30%" height="24px"></Skeleton>
-                  <Skeleton width="55%" height="24px"></Skeleton>
-                </div>
-              ))}
+              {Array(6)
+                .fill(null)
+                .map((_, i) => (
+                  <div key={i} className="flex items-center">
+                    <Skeleton width="30%" height="24px"></Skeleton>
+                    <Skeleton width="55%" height="24px"></Skeleton>
+                  </div>
+                ))}
             </div>
           </Box>
           <Box as="div" display="block">
             <Skeleton width="200px" height="24px"></Skeleton>
-            {Array(3).map((_, i) => (
-              <Skeleton key={i} width="50px">
-                Ability
-              </Skeleton>
-            ))}
+            {Array(3)
+              .fill(null)
+              .map((_, i) => (
+                <Skeleton key={i} width="50px">
+                  Ability
+                </Skeleton>
+              ))}
           </Box>
         </aside>
       </section>

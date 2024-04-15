@@ -17,9 +17,13 @@ export default async function PokemonPage({
 
   return (
     <main className="min-h-screen p-3">
-      <div className="p-6 md:p-24 text-white bg-slate-200/20">
+      <div className="p-2 xl:p-6 md:p-24 text-white bg-slate-200/20">
         <div className="flex justify-center">
-          <Box as="div" display="block" className="rounded-lg w-11/12 p-5 pb-8">
+          <Box
+            as="div"
+            display="block"
+            className="rounded-lg w-full p-1 xl:p-5 pb-8"
+          >
             <Suspense fallback={<PokemonPageSkeleton />}>
               <header className="pb-6 pt-2 mb-2">
                 <h1 className="text-4xl 2xl:text-5xl flex justify-center">
@@ -47,10 +51,10 @@ export default async function PokemonPage({
                     display="block"
                     className="rounded-lg bg-amber-600/70 text-slate-100 p-5"
                   >
-                    <section className="grid grid-cols-2 text-xl">
+                    <section className="flex justify-evenly gap-4 text-lg xl:text-xl">
                       <div>
                         <span className="font-bold">Height:&nbsp;</span>
-                        {pokemon.height}
+                        {pokemon.height / 10}m
                       </div>
                       <div>
                         {" "}
@@ -75,7 +79,7 @@ export default async function PokemonPage({
                             <Progress
                               color="crimson"
                               variant="classic"
-                              value={s.base_stat}
+                              value={Math.min(100, s.base_stat)}
                             />
                           </div>
                         );
@@ -87,18 +91,20 @@ export default async function PokemonPage({
                     display="block"
                     className="rounded-lg bg-slate-800/70 mt-5 text-slate-100 p-5"
                   >
-                    <h2 className="text-2xl mb-2 font-bold">Abilities</h2>
-                    {pokemon.abilities.map((ability) => (
-                      <Badge
-                        size="3"
-                        color="mint"
-                        variant="solid"
-                        key={ability.ability.name}
-                        className="me-2 uppercase"
-                      >
-                        {ability.ability.name}
-                      </Badge>
-                    ))}
+                    <h2 className="text-2xl font-bold">Abilities</h2>
+                    <div className="mt-2 flex flex-wrap gap-2">
+                      {pokemon.abilities.map((ability) => (
+                        <Badge
+                          size="3"
+                          color="mint"
+                          variant="solid"
+                          key={ability.ability.name}
+                          className="uppercase me-2"
+                        >
+                          {ability.ability.name}
+                        </Badge>
+                      ))}
+                    </div>
                   </Box>
                 </aside>
               </section>

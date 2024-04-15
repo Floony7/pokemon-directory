@@ -21,7 +21,7 @@ export default function RootLayout({
       <body
         className={`min-h-screen p-6 md:p-24 bg-gradient-to-r from-indigo-500 via-purple-700 to-pink-800 ${inter.className}`}
       >
-        <div className="w-11/12 xl:w-9/12 mx-auto">
+        <div className="w-full xl:w-9/12 mx-auto">
           <Header />
           <Theme style={{ backgroundColor: "inherit" }}>
             {children}
