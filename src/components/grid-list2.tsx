@@ -1,7 +1,6 @@
 import { PokemonCard } from "./pokemon-card";
 import { fetchBySearchTerm } from "@/lib/api-requests";
 
-type FetchData = any;
 export default async function GridList2({ query }: { query?: string }) {
   const fetchData = await fetchBySearchTerm(query ?? "");
 
