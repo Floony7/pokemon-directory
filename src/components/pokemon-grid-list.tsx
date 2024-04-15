@@ -1,10 +1,9 @@
-"use client";
+/* "use client";
 
 import { Suspense, useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { PokemonCard } from "./pokemon-card";
 
-type FetchData = any;
 export const PokemonGridList = ({ fetchData }: FetchData) => {
   const [pokemonData, setPokemonData] = useState(fetchData);
 
@@ -36,3 +35,4 @@ export const PokemonGridList = ({ fetchData }: FetchData) => {
     </section>
   );
 };
+ */
