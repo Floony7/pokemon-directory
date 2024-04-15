@@ -55,7 +55,7 @@ export default async function PokemonPage({
                       <div>
                         {" "}
                         <span className="font-bold">Weight:&nbsp;</span>
-                        {pokemon.weight}
+                        {pokemon.weight}lb
                       </div>
                     </section>
                   </Box>
