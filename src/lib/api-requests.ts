@@ -1,4 +1,4 @@
-import { Pokemon } from 'pokeapi-types';
+import { Pokemon } from './index'
 
 const BASE_PATH = 'https://pokeapi.co/api/v2'
 

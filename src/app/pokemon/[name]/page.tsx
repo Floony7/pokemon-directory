@@ -1,4 +1,5 @@
 import { PokemonImage } from "@/components/pokemon-image";
+import { PokemonStat } from "@/lib";
 import { PokemonPageSkeleton } from "@/components/pokemon-page-skeleton";
 import { fetchPokemonByName } from "@/lib/api-requests";
 import { capitalise } from "@/lib/utils";
@@ -65,18 +66,20 @@ export default async function PokemonPage({
                   >
                     <h2 className="text-2xl font-bold">Stats</h2>
                     <div className="flex flex-col">
-                      {pokemon.stats.map((s) => (
-                        <div key={s.stat.name} className="flex items-center">
-                          <h3 className="p-3 text-xl w-2/4">
-                            {capitalise(s.stat.name)}
-                          </h3>
-                          <Progress
-                            color="crimson"
-                            variant="classic"
-                            value={s.base_stat}
-                          />
-                        </div>
-                      ))}
+                      {pokemon.stats.map((s: PokemonStat) => {
+                        return (
+                          <div key={s.stat.name} className="flex items-center">
+                            <h3 className="p-3 text-xl w-2/4">
+                              {capitalise(s.stat.name)}
+                            </h3>
+                            <Progress
+                              color="crimson"
+                              variant="classic"
+                              value={s.base_stat}
+                            />
+                          </div>
+                        );
+                      })}
                     </div>
                   </Box>
                   <Box
