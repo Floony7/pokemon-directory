@@ -11,9 +11,8 @@ export default async function Home({
   const pokemonList = await fetchPokemonList();
 
   return (
-    <main className="min-h-screen p-6 md:p-24">
+    <main className="min-h-screen">
       <div>
-        <Header />
         <GridList2 query={searchParams?.q} />
       </div>
     </main>
