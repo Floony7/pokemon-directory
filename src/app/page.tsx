@@ -1,7 +1,7 @@
 import GridList2 from "@/components/grid-list2";
-import Header from "@/components/header";
-import { PokemonGridList } from "@/components/pokemon-grid-list";
+import GridListSkeleton from "@/components/grid-skeleton";
 import { fetchPokemonList } from "@/lib/api-requests";
+import { Suspense } from "react";
 
 export default async function Home({
   searchParams,
@@ -12,9 +12,9 @@ export default async function Home({
 
   return (
     <main className="min-h-screen">
-      <div>
+      <Suspense fallback={<GridListSkeleton />}>
         <GridList2 query={searchParams?.q} />
-      </div>
+      </Suspense>
     </main>
   );
 }

@@ -20,8 +20,8 @@ export const SearchInput = () => {
   }, 300);
 
   return (
-    <section className="flex justify-center 2xl:justify-normal w-full 2xl:w-3/12 gap-1 mt-2 2xl:mt-0">
-      <div className="search__input border-[2px] border-solid bg-white flex flex-row items-center gap-5 p-1 rounded">
+    <section className="flex justify-center 2xl:justify-end w-full 2xl:w-3/12 gap-1 mt-2 2xl:mt-0">
+      <div className="search__input border-[2px] w-100 border-solid bg-white flex flex-row items-center gap-5 p-1 rounded">
         <label htmlFor="inputId">
           <MagnifyingGlassIcon className="ms-2" height="18" width="18" />
         </label>

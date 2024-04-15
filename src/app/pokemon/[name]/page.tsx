@@ -1,4 +1,5 @@
 import { PokemonImage } from "@/components/pokemon-image";
+import { PokemonPageSkeleton } from "@/components/pokemon-page-skeleton";
 import { fetchPokemonByName } from "@/lib/api-requests";
 import { capitalise } from "@/lib/utils";
 import { Badge, Box, Progress } from "@radix-ui/themes";
@@ -15,10 +16,10 @@ export default async function PokemonPage({
 
   return (
     <main className="min-h-screen p-3">
-      <div className="p-6 md:p-24 text-slate-100 bg-slate-200/20">
+      <div className="p-6 md:p-24 text-white bg-slate-200/20">
         <div className="flex justify-center">
           <Box as="div" display="block" className="rounded-lg w-11/12 p-5 pb-8">
-            <Suspense fallback={<div>Loading...</div>}>
+            <Suspense fallback={<PokemonPageSkeleton />}>
               <header className="pb-6 pt-2 mb-2">
                 <h1 className="text-4xl 2xl:text-5xl flex justify-center">
                   <span className="font-bold">{capitalise(pokemon.name)}</span>
@@ -43,29 +44,24 @@ export default async function PokemonPage({
                   <Box
                     as="div"
                     display="block"
-                    className="rounded-lg bg-pink-500/70 text-slate-100 p-5"
+                    className="rounded-lg bg-amber-600/70 text-slate-100 p-5"
                   >
-                    <ul className="list-none ps-0 columns-1 2xl:columns-2 text-xl">
-                      <li>
+                    <section className="grid grid-cols-2 text-xl">
+                      <div>
                         <span className="font-bold">Height:&nbsp;</span>
                         {pokemon.height}
-                      </li>
-                      <li>
+                      </div>
+                      <div>
                         {" "}
                         <span className="font-bold">Weight:&nbsp;</span>
                         {pokemon.weight}
-                      </li>
-                      <li>
-                        {" "}
-                        <span className="font-bold">Weight:&nbsp;</span>
-                        {pokemon.weight}
-                      </li>
-                    </ul>
+                      </div>
+                    </section>
                   </Box>
                   <Box
                     as="div"
                     display="block"
-                    className="rounded-lg bg-blue-700/80 mt-5 text-slate-100 p-5"
+                    className="rounded-lg bg-indigo-900 mt-5 text-slate-100 p-5"
                   >
                     <h2 className="text-2xl font-bold">Stats</h2>
                     <div className="flex flex-col">
@@ -88,20 +84,19 @@ export default async function PokemonPage({
                     display="block"
                     className="rounded-lg bg-slate-800/70 mt-5 text-slate-100 p-5"
                   >
-                    <h2 className="text-2xl font-bold">Abilities</h2>
+                    <h2 className="text-2xl mb-2 font-bold">Abilities</h2>
                     {pokemon.abilities.map((ability) => (
-                      <Badge color="crimson" key={ability.ability.name}>
+                      <Badge
+                        size="3"
+                        color="mint"
+                        variant="solid"
+                        key={ability.ability.name}
+                        className="me-2 uppercase"
+                      >
                         {ability.ability.name}
                       </Badge>
                     ))}
                   </Box>
-                  {/* <Box
-                    as="div"
-                    display="block"
-                    className="rounded-lg bg-purple-300/20 mt-5 text-slate-100 p-5"
-                  >
-                    <h2 className="text-2xl font-bold">Abilities</h2>
-                  </Box> */}
                 </aside>
               </section>
             </Suspense>
