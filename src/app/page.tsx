@@ -1,7 +1,11 @@
 import GridList2 from "@/components/grid-list2";
 import GridListSkeleton from "@/components/grid-skeleton";
-import { fetchPokemonList } from "@/lib/api-requests";
+import dynamic from "next/dynamic";
 import { Suspense } from "react";
+
+const DynamicGridList = dynamic(() => import("@/components/grid-list2"), {
+  loading: () => <GridListSkeleton />,
+});
 
 export default async function Home({
   searchParams,
@@ -10,9 +14,7 @@ export default async function Home({
 }) {
   return (
     <main className="min-h-screen">
-      <Suspense fallback={<GridListSkeleton />}>
-        <GridList2 query={searchParams?.q} />
-      </Suspense>
+      <DynamicGridList query={searchParams?.q} />
     </main>
   );
 }
