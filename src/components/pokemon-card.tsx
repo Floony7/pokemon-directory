@@ -1,7 +1,7 @@
 import { capitalise } from "@/lib/utils";
 import { Badge, Card, Flex, Heading, Text } from "@radix-ui/themes";
 import Link from "next/link";
-import { Pokemon } from "pokeapi-types";
+import { Pokemon } from "@/lib";
 import { PokemonImage } from "./pokemon-image";
 
 export const PokemonCard = ({ pokemon }: { pokemon: Pokemon }) => {
