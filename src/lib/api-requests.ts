@@ -35,17 +35,21 @@ export async function fetchPokemonByName(name: string) {
 }
 
 export async function fetchBySearchTerm(term: string) {
-    const res = await fetch(`${BASE_PATH}/pokemon?limit=151&offset=0`);
-    const data: PokemonList = await res.json();
-    let allPokemonData: Pokemon[] = [];
-    const results = data.results;
-    for await (let result of results) {
-        const pokemonRes = await fetch(result.url);
-        const pokemonData: Pokemon = await pokemonRes.json();
-        allPokemonData.push(pokemonData);
+    try {
+        const res = await fetch(`${BASE_PATH}/pokemon?limit=151&offset=0`);
+        const data: PokemonList = await res.json();
+        let allPokemonData: Pokemon[] = [];
+        const results = data.results;
+        for await (let result of results) {
+            const pokemonRes = await fetch(result.url);
+            const pokemonData: Pokemon = await pokemonRes.json();
+            allPokemonData.push(pokemonData);
+        }
+        if (!term) {
+            return allPokemonData;
+        }
+        return allPokemonData.filter(d => d.name.includes(term.toLowerCase()));
+    } catch (err) {
+        throw new Error("Failed to fetch Pokemon")
     }
-    if (!term) {
-        return allPokemonData;
-    }
-    return allPokemonData.filter(d => d.name.includes(term.toLowerCase()));
 }
