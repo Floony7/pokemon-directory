@@ -6,7 +6,7 @@ import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 
 export const SearchInput = () => {
   const searchParams = useSearchParams();
-  const pathname = usePathname();
+  // const pathname = usePathname();
   const { replace } = useRouter();
 
   const handleSearch = useDebouncedCallback((term: string) => {
@@ -16,7 +16,7 @@ export const SearchInput = () => {
     } else {
       params.delete("q");
     }
-    replace(`${pathname}?${params.toString()}`);
+    replace(`/?${params.toString()}`);
   }, 300);
 
   return (
@@ -30,7 +30,6 @@ export const SearchInput = () => {
           id="inputId"
           placeholder="Find Pokemon by name"
           defaultValue={searchParams.get("q")?.toString()}
-          // value={inputValue ?? ""}
           onChange={(e) => handleSearch(e.target.value)}
           className="bg-white outline-none border-none w-full py-2 pl-2 pr-3"
         />

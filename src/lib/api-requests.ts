@@ -15,7 +15,7 @@ export interface PokemonList {
 export async function fetchPokemonList() {
     try {
         let allPokemonData: Pokemon[] = [];
-        const res = await fetch(`${BASE_PATH}/pokemon?limit=151&offset=0`);
+        const res = await fetch(`${BASE_PATH}/pokemon?limit=20&offset=0`);
         const data: PokemonList = await res.json();
         const results = data.results;
         for await (let result of results) {
