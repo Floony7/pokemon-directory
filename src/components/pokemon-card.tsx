@@ -9,10 +9,10 @@ export const PokemonCard = ({ pokemon }: { pokemon: Pokemon }) => {
     <Card className="rounded w-full shadow-lg bg-amber-700 mb-2 ms-1 duration-150 hover:bg-purple-700 hover:scale-105 hover:rotate-2">
       <Link href={`/pokemon/${pokemon.name}`}>
         <header className="flex justify-between">
-          <h2 className="text-blue-900 font-bold text-2xl xl:text-3xl 2xl:text-3xl">
+          <h2 className="text-blue-900 font-bold text-2xl xl:text-2xl">
             {capitalise(pokemon.name)}
           </h2>
-          <Text className="text-3xl font-mono text-blue-900">
+          <Text className="text-2xl font-mono text-blue-900">
             {String(pokemon.order).padStart(4, "0")}
           </Text>
         </header>
